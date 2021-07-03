@@ -1,15 +1,13 @@
-FROM ubuntu
+FROM python:3.9-slim-buster
 
-RUN apt-get update && apt-get install -y cron python3 python3-pip
+RUN apt-get update && apt-get install -y cron
 
 WORKDIR /app
 
-COPY code/requirements.txt requirements.txt
+COPY code/* /app/
 
 RUN pip3 install -r requirements.txt
 
-COPY code/* .
- 
 RUN chmod +x entrypoint.sh random-fun-fact.sh
 
 ENTRYPOINT /app/entrypoint.sh
