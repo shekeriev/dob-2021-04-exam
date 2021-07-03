@@ -10,4 +10,4 @@ RUN pip3 install -r requirements.txt
 
 RUN chmod +x entrypoint.sh random-fun-fact.sh
 
-ENTRYPOINT entrypoint.sh
+ENTRYPOINT /app/entrypoint.sh
